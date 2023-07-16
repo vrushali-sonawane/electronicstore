@@ -2,6 +2,7 @@ package com.bikkadit.electronicstore.controller;
 
 import com.bikkadit.electronicstore.dto.UserDto;
 import com.bikkadit.electronicstore.help.AppConstant;
+import com.bikkadit.electronicstore.help.PageableResponse;
 import com.bikkadit.electronicstore.service.UserServiceI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,11 +79,17 @@ public class UserController {
      * @return
      */
     @GetMapping("/")
-    public ResponseEntity<List<UserDto>> getAllUsers(){
-        log.info("Initiating request to get all users");
-        List<UserDto> all = userServiceI.getAllUsers();
-        log.info("Completed request to get all users");
-        return new ResponseEntity<List<UserDto>>( all,HttpStatus.OK);
+    public ResponseEntity<PageableResponse<UserDto>> getAllUsers(
+            @RequestParam(value = "pageNumber",defaultValue = "0",required = false)int pageNumber,
+            @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize,
+            @RequestParam(value = "sortBy",defaultValue = "name",required = false)String sortBy,
+            @RequestParam(value = "sortDir",defaultValue = "asc",required = false)String sortDir
+
+    ){
+
+        PageableResponse<UserDto> all = userServiceI.getAllUsers(pageNumber, pageSize,sortBy,sortDir);
+
+        return new ResponseEntity<>( all,HttpStatus.OK);
 
     }
 
