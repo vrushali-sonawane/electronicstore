@@ -516,3 +516,604 @@
 07:16 22:26:05.264 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
 07:16 22:26:05.434 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
 07:16 22:26:06.051 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 17:12:49.004 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 17:12:49.349 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 14948 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 17:12:49.648 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 17:12:50.894 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 17:12:50.895 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 17:13:01.578 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 17:13:02.324 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 700 ms. Found 1 JPA repository interfaces.
+07:17 17:13:09.127 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 17:13:09.177 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 17:13:09.187 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 17:13:09.187 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 17:13:09.567 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 17:13:09.567 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 18671 ms
+07:17 17:13:10.275 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 17:13:10.875 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 17:13:16.517 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 17:13:18.282 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 17:13:40.858 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 17:13:41.406 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 17:14:18.057 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 17:14:19.240 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:14:28.134 [restartedMain] [WARN] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'fileServiceI'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.bikkadit.electronicstore.service.FileServiceI' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+07:17 17:14:28.135 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:14:28.198 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:17 17:14:28.466 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 17:14:28.471 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Stopping service [Tomcat]
+07:17 17:14:28.658 [restartedMain] [INFO] [o.s.b.a.l.ConditionEvaluationReportLoggingListener] -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+07:17 17:14:28.866 [restartedMain] [ERROR] [o.s.b.d.LoggingFailureAnalysisReporter] -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field fileServiceI in com.bikkadit.electronicstore.controller.UserController required a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' in your configuration.
+
+07:17 17:19:01.389 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 17:19:01.410 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 11516 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 17:19:01.442 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 17:19:01.831 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 17:19:01.831 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 17:19:06.222 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 17:19:06.415 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 165 ms. Found 1 JPA repository interfaces.
+07:17 17:19:10.773 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 17:19:10.839 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 17:19:10.858 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 17:19:10.859 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 17:19:11.178 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 17:19:11.178 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 9346 ms
+07:17 17:19:11.751 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 17:19:11.943 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 17:19:12.593 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 17:19:12.927 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 17:19:14.675 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 17:19:14.764 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 17:19:17.074 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 17:19:17.119 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:19:18.216 [restartedMain] [WARN] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'fileServiceI'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.bikkadit.electronicstore.service.FileServiceI' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+07:17 17:19:18.217 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:19:18.231 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:17 17:19:18.306 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 17:19:18.313 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Stopping service [Tomcat]
+07:17 17:19:18.353 [restartedMain] [INFO] [o.s.b.a.l.ConditionEvaluationReportLoggingListener] -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+07:17 17:19:18.449 [restartedMain] [ERROR] [o.s.b.d.LoggingFailureAnalysisReporter] -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field fileServiceI in com.bikkadit.electronicstore.controller.UserController required a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' in your configuration.
+
+07:17 17:27:59.789 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 17:27:59.974 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 10720 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 17:28:00.290 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 17:28:01.338 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 17:28:01.339 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 17:28:06.980 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 17:28:07.428 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 389 ms. Found 1 JPA repository interfaces.
+07:17 17:28:11.006 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 17:28:11.086 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 17:28:11.101 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 17:28:11.102 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 17:28:11.423 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 17:28:11.423 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 10083 ms
+07:17 17:28:12.331 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 17:28:12.565 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 17:28:13.192 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 17:28:13.595 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 17:28:22.524 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 17:28:23.698 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 17:28:29.735 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 17:28:29.856 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:28:31.486 [restartedMain] [WARN] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'fileServiceI'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.bikkadit.electronicstore.service.FileServiceI' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+07:17 17:28:31.490 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:28:31.521 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:17 17:28:31.676 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 17:28:31.681 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Stopping service [Tomcat]
+07:17 17:28:31.764 [restartedMain] [INFO] [o.s.b.a.l.ConditionEvaluationReportLoggingListener] -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+07:17 17:28:31.912 [restartedMain] [ERROR] [o.s.b.d.LoggingFailureAnalysisReporter] -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field fileServiceI in com.bikkadit.electronicstore.controller.UserController required a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' in your configuration.
+
+07:17 17:32:30.336 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 15796 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 17:32:30.339 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 17:32:30.356 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 17:32:30.523 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 17:32:30.523 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 17:32:33.013 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 17:32:33.254 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 219 ms. Found 1 JPA repository interfaces.
+07:17 17:32:38.453 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 17:32:38.483 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 17:32:38.485 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 17:32:38.488 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 17:32:38.921 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 17:32:38.925 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 8373 ms
+07:17 17:32:39.352 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 17:32:39.465 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 17:32:39.898 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 17:32:40.200 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 17:32:41.135 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 17:32:41.156 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 17:32:42.705 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 17:32:42.722 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:32:43.747 [restartedMain] [WARN] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'fileServiceI'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.bikkadit.electronicstore.service.FileServiceI' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+07:17 17:32:43.747 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:32:43.755 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:17 17:32:43.790 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 17:32:43.796 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Stopping service [Tomcat]
+07:17 17:32:43.829 [restartedMain] [INFO] [o.s.b.a.l.ConditionEvaluationReportLoggingListener] -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+07:17 17:32:43.883 [restartedMain] [ERROR] [o.s.b.d.LoggingFailureAnalysisReporter] -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field fileServiceI in com.bikkadit.electronicstore.controller.UserController required a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.bikkadit.electronicstore.service.FileServiceI' in your configuration.
+
+07:17 17:35:27.644 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 17:35:27.644 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 15436 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 17:35:27.657 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 17:35:27.933 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 17:35:27.934 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 17:35:30.076 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 17:35:30.231 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 135 ms. Found 1 JPA repository interfaces.
+07:17 17:35:32.244 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 17:35:32.261 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 17:35:32.266 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 17:35:32.267 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 17:35:32.523 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 17:35:32.523 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 4584 ms
+07:17 17:35:32.938 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 17:35:33.077 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 17:35:33.499 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 17:35:33.851 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 17:35:34.579 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 17:35:34.612 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 17:35:36.658 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 17:35:36.677 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 17:35:37.993 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:17 17:35:39.804 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:17 17:35:39.838 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-8989"]
+07:17 17:35:39.980 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 8989 (http) with context path ''
+07:17 17:35:40.068 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Started ElectronicstoreApplication in 13.275 seconds (JVM running for 14.846)
+07:17 17:38:20.679 [http-nio-8989-exec-2] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:17 17:38:20.682 [http-nio-8989-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:17 17:38:20.684 [http-nio-8989-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 1 ms
+07:17 17:38:20.952 [http-nio-8989-exec-2] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating dao call to get all users
+07:17 17:38:30.803 [http-nio-8989-exec-2] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed dao call to get all users
+07:17 17:44:13.496 [http-nio-8989-exec-5] [ERROR] [o.a.c.c.C.[.[.[.[dispatcherServlet]] -Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.multipart.MaxUploadSizeExceededException: Maximum upload size exceeded; nested exception is java.lang.IllegalStateException: org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException: The field userImage exceeds its maximum permitted size of 1048576 bytes.] with root cause
+org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException: The field userImage exceeds its maximum permitted size of 1048576 bytes.
+	at org.apache.tomcat.util.http.fileupload.impl.FileItemStreamImpl$1.raiseError(FileItemStreamImpl.java:117)
+	at org.apache.tomcat.util.http.fileupload.util.LimitedInputStream.checkLimit(LimitedInputStream.java:76)
+	at org.apache.tomcat.util.http.fileupload.util.LimitedInputStream.read(LimitedInputStream.java:135)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:106)
+	at org.apache.tomcat.util.http.fileupload.util.Streams.copy(Streams.java:97)
+	at org.apache.tomcat.util.http.fileupload.FileUploadBase.parseRequest(FileUploadBase.java:317)
+	at org.apache.catalina.connector.Request.parseParts(Request.java:2849)
+	at org.apache.catalina.connector.Request.getParts(Request.java:2750)
+	at org.apache.catalina.connector.RequestFacade.getParts(RequestFacade.java:796)
+	at org.springframework.web.multipart.support.StandardMultipartHttpServletRequest.parseRequest(StandardMultipartHttpServletRequest.java:95)
+	at org.springframework.web.multipart.support.StandardMultipartHttpServletRequest.<init>(StandardMultipartHttpServletRequest.java:88)
+	at org.springframework.web.multipart.support.StandardServletMultipartResolver.resolveMultipart(StandardServletMultipartResolver.java:122)
+	at org.springframework.web.servlet.DispatcherServlet.checkMultipart(DispatcherServlet.java:1210)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1044)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+07:17 18:03:23.707 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:17 18:03:24.988 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:17 18:03:27.559 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 18:06:55.494 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 9352 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 18:06:55.511 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 18:06:55.647 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 18:06:57.176 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 18:06:57.176 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 18:07:09.823 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 18:07:14.368 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 4387 ms. Found 1 JPA repository interfaces.
+07:17 18:07:25.591 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 18:07:25.669 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 18:07:25.697 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 18:07:25.697 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 18:07:26.206 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 18:07:26.206 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 29028 ms
+07:17 18:07:27.499 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 18:07:28.174 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 18:07:30.074 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 18:07:32.213 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 18:07:38.418 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 18:07:38.842 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 18:07:53.036 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 18:07:53.248 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 18:08:01.639 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:17 18:08:08.725 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:17 18:08:08.794 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-8989"]
+07:17 18:08:11.263 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 8989 (http) with context path ''
+07:17 18:08:11.286 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Started ElectronicstoreApplication in 82.117 seconds (JVM running for 102.985)
+07:17 18:09:30.415 [http-nio-8989-exec-2] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:17 18:09:30.418 [http-nio-8989-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:17 18:09:30.422 [http-nio-8989-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 3 ms
+07:17 18:09:30.789 [http-nio-8989-exec-2] [INFO] [c.b.e.service.impl.FileServiceImpl] -filename :image1.jpeg
+07:17 18:09:30.879 [http-nio-8989-exec-2] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:b99865a5-1901-4256-8e16-e4cb71d2492b
+07:17 18:09:31.912 [http-nio-8989-exec-2] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :b99865a5-1901-4256-8e16-e4cb71d2492b
+07:17 18:09:31.912 [http-nio-8989-exec-2] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating dao call to update user:b99865a5-1901-4256-8e16-e4cb71d2492b
+07:17 18:09:33.158 [http-nio-8989-exec-2] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed  dao call to update user:b99865a5-1901-4256-8e16-e4cb71d2492b
+07:17 18:12:35.654 [http-nio-8989-exec-5] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating dao call to get all users
+07:17 18:12:37.733 [http-nio-8989-exec-5] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed dao call to get all users
+07:17 18:16:23.169 [http-nio-8989-exec-8] [INFO] [c.b.e.service.impl.FileServiceImpl] -filename :IMG_20180927_100258.jpg
+07:17 18:16:23.234 [http-nio-8989-exec-8] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:0c12b26f-ee3f-43a0-bcca-bf61bc502e7c
+07:17 18:16:23.338 [http-nio-8989-exec-8] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :0c12b26f-ee3f-43a0-bcca-bf61bc502e7c
+07:17 18:16:23.338 [http-nio-8989-exec-8] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating dao call to update user:0c12b26f-ee3f-43a0-bcca-bf61bc502e7c
+07:17 18:16:23.771 [http-nio-8989-exec-8] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed  dao call to update user:0c12b26f-ee3f-43a0-bcca-bf61bc502e7c
+07:17 18:16:23.917 [http-nio-8989-exec-8] [WARN] [o.s.w.m.s.StandardServletMultipartResolver] -Failed to perform cleanup of multipart items
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.springframework.web.multipart.support.StandardServletMultipartResolver.cleanupMultipart(StandardServletMultipartResolver.java:134)
+	at org.springframework.web.servlet.DispatcherServlet.cleanupMultipart(DispatcherServlet.java:1251)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1108)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	... 44 common frames omitted
+07:17 18:16:23.934 [http-nio-8989-exec-8] [ERROR] [o.a.coyote.http11.Http11Processor] -Error processing request
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.apache.catalina.connector.Request.recycle(Request.java:474)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:421)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	... 13 common frames omitted
+07:17 18:16:24.061 [http-nio-8989-exec-8] [ERROR] [o.a.coyote.http11.Http11NioProtocol] -Error reading request, ignored
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.apache.catalina.connector.Request.recycle(Request.java:474)
+	at org.apache.catalina.connector.CoyoteAdapter.log(CoyoteAdapter.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:420)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	... 13 common frames omitted
+07:17 18:16:24.065 [http-nio-8989-exec-8] [ERROR] [o.apache.tomcat.util.net.NioEndpoint] -Error running socket processor
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.apache.catalina.connector.Request.recycle(Request.java:474)
+	at org.apache.catalina.connector.CoyoteAdapter.log(CoyoteAdapter.java:494)
+	at org.apache.catalina.connector.CoyoteAdapter.checkRecycled(CoyoteAdapter.java:517)
+	at org.apache.coyote.http11.Http11Processor.recycle(Http11Processor.java:1417)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.release(AbstractProtocol.java:1129)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1090)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000001.tmp
+	... 14 common frames omitted
+07:17 18:17:49.530 [http-nio-8989-exec-10] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating dao call to get all users
+07:17 18:17:49.703 [http-nio-8989-exec-10] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed dao call to get all users
+07:17 18:21:38.940 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.FileServiceImpl] -filename :IMG_20181006_080209.jpg
+07:17 18:21:39.005 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:567cabd5-81df-421b-ba34-378a3e96120f
+07:17 18:21:39.013 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :567cabd5-81df-421b-ba34-378a3e96120f
+07:17 18:21:39.014 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating dao call to update user:567cabd5-81df-421b-ba34-378a3e96120f
+07:17 18:21:39.210 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed  dao call to update user:567cabd5-81df-421b-ba34-378a3e96120f
+07:17 18:21:39.215 [http-nio-8989-exec-3] [WARN] [o.s.w.m.s.StandardServletMultipartResolver] -Failed to perform cleanup of multipart items
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.springframework.web.multipart.support.StandardServletMultipartResolver.cleanupMultipart(StandardServletMultipartResolver.java:134)
+	at org.springframework.web.servlet.DispatcherServlet.cleanupMultipart(DispatcherServlet.java:1251)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1108)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	... 44 common frames omitted
+07:17 18:21:39.222 [http-nio-8989-exec-3] [ERROR] [o.a.coyote.http11.Http11Processor] -Error processing request
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.apache.catalina.connector.Request.recycle(Request.java:474)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:421)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	... 13 common frames omitted
+07:17 18:21:39.223 [http-nio-8989-exec-3] [ERROR] [o.a.coyote.http11.Http11NioProtocol] -Error reading request, ignored
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.apache.catalina.connector.Request.recycle(Request.java:474)
+	at org.apache.catalina.connector.CoyoteAdapter.log(CoyoteAdapter.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:420)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	... 13 common frames omitted
+07:17 18:21:39.225 [http-nio-8989-exec-3] [ERROR] [o.apache.tomcat.util.net.NioEndpoint] -Error running socket processor
+java.io.UncheckedIOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	at org.apache.tomcat.util.http.fileupload.disk.DiskFileItem.delete(DiskFileItem.java:431)
+	at org.apache.catalina.core.ApplicationPart.delete(ApplicationPart.java:53)
+	at org.apache.catalina.connector.Request.recycle(Request.java:474)
+	at org.apache.catalina.connector.CoyoteAdapter.log(CoyoteAdapter.java:494)
+	at org.apache.catalina.connector.CoyoteAdapter.checkRecycled(CoyoteAdapter.java:517)
+	at org.apache.coyote.http11.Http11Processor.recycle(Http11Processor.java:1417)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.release(AbstractProtocol.java:1129)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1090)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\tomcat.8989.5518633234910637590\work\Tomcat\localhost\ROOT\upload_d87c4c4e_c576_4d8a_bd0e_925f7328e620_00000002.tmp
+	... 14 common frames omitted
+07:17 18:55:40.404 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:17 18:55:40.570 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:17 18:55:40.750 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 18:56:27.659 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 18:56:27.824 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 2244 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 18:56:27.826 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 18:56:28.148 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 18:56:28.150 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 18:56:31.737 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 18:56:31.943 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 177 ms. Found 1 JPA repository interfaces.
+07:17 18:56:34.702 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 18:56:34.741 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 18:56:34.743 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 18:56:34.744 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 18:56:35.034 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 18:56:35.035 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 6881 ms
+07:17 18:56:35.602 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 18:56:35.869 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 18:56:36.282 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 18:56:36.696 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 18:56:38.704 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 18:56:38.809 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 18:56:43.480 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 18:56:43.498 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 18:56:45.154 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:17 18:56:46.934 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:17 18:56:50.056 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-8989"]
+07:17 18:56:52.294 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 8989 (http) with context path ''
+07:17 18:56:52.428 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Started ElectronicstoreApplication in 26.358 seconds (JVM running for 30.246)
+07:17 18:58:48.463 [http-nio-8989-exec-1] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:17 18:58:48.465 [http-nio-8989-exec-1] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:17 18:58:48.467 [http-nio-8989-exec-1] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 2 ms
+07:17 18:58:48.602 [http-nio-8989-exec-1] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:0c12b26f-ee3f-43a0-bcca-bf61bc502e7c
+07:17 18:58:48.957 [http-nio-8989-exec-1] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :0c12b26f-ee3f-43a0-bcca-bf61bc502e7c
+07:17 18:58:48.958 [http-nio-8989-exec-1] [INFO] [c.b.e.controller.UserController] -User Image name : 07fbc302-e383-4d69-88eb-9a3692527866.jpg
+07:17 19:05:56.485 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:17 19:05:56.513 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:17 19:05:56.599 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:17 19:06:20.183 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:17 19:06:20.381 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Starting ElectronicstoreApplication using Java 17.0.6 on DESKTOP-2OI3U43 with PID 15892 (E:\NewProjectfolder\electronicstore\target\classes started by KSAV in E:\NewProjectfolder\electronicstore)
+07:17 19:06:20.383 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:17 19:06:20.655 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:17 19:06:20.656 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:17 19:06:23.420 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:17 19:06:23.607 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 170 ms. Found 1 JPA repository interfaces.
+07:17 19:06:26.092 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 8989 (http)
+07:17 19:06:26.131 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-8989"]
+07:17 19:06:26.134 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:17 19:06:26.135 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:17 19:06:26.452 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:17 19:06:26.453 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 5796 ms
+07:17 19:06:26.992 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:17 19:06:27.202 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:17 19:06:27.737 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:17 19:06:28.033 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:17 19:06:29.606 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:17 19:06:29.689 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:17 19:06:32.202 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:17 19:06:32.218 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:17 19:06:33.554 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:17 19:06:34.635 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:17 19:06:34.668 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-8989"]
+07:17 19:06:34.773 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 8989 (http) with context path ''
+07:17 19:06:34.798 [restartedMain] [INFO] [c.b.e.ElectronicstoreApplication] -Started ElectronicstoreApplication in 15.829 seconds (JVM running for 18.776)
+07:17 19:07:32.840 [http-nio-8989-exec-1] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:17 19:07:32.845 [http-nio-8989-exec-1] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:17 19:07:32.847 [http-nio-8989-exec-1] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 2 ms
+07:17 19:07:33.183 [http-nio-8989-exec-1] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:b99865a5-1901-4256-8e16-e4cb71d2492b
+07:17 19:07:33.849 [http-nio-8989-exec-1] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :b99865a5-1901-4256-8e16-e4cb71d2492b
+07:17 19:07:33.849 [http-nio-8989-exec-1] [INFO] [c.b.e.controller.UserController] -User Image name : e9395208-ee8a-466a-91e3-f2db2d9f9c23.jpeg
+07:17 19:07:55.318 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:567cabd5-81df-421b-ba34-378a3e96120f
+07:17 19:07:55.324 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :567cabd5-81df-421b-ba34-378a3e96120f
+07:17 19:07:55.324 [http-nio-8989-exec-3] [INFO] [c.b.e.controller.UserController] -User Image name : a2771832-4db9-4718-b000-6f4aac60fbf7.jpg
+07:17 19:10:34.784 [http-nio-8989-exec-5] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:567cabd5-81df-421b-ba34-378a3e96120f
+07:17 19:10:34.822 [http-nio-8989-exec-5] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :567cabd5-81df-421b-ba34-378a3e96120f
+07:17 19:10:34.823 [http-nio-8989-exec-5] [INFO] [c.b.e.controller.UserController] -User Image name : a2771832-4db9-4718-b000-6f4aac60fbf7.jpg
