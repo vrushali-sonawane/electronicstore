@@ -55,7 +55,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
     @Override
     public PageableResponse<CategoryDto> getAll(int pageNUmber,int pageSize,String sortBy,String sortDir) {
-        Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending())
+        Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
         Pageable pageable = PageRequest.of(pageNUmber,pageSize,sort);
         Page<Category> page = categoryRepository.findAll(pageable);
         PageableResponse<CategoryDto> pageableResponse = Helper.getPageableResponse(page, CategoryDto.class);
