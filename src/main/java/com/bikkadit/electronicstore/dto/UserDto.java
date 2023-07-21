@@ -26,7 +26,7 @@ public class UserDto {
     @NotBlank(message = "email is required")
     private String email;
 
-    @NotBlank(message = "password is required")
+    @Pattern(regexp ="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")
     private String password;
 
     @Size(min=4,max=6,message = "Invalid gender")

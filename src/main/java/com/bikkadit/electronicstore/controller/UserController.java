@@ -92,10 +92,10 @@ public class UserController {
      */
     @GetMapping("/")
     public ResponseEntity<PageableResponse<UserDto>> getAllUsers(
-            @RequestParam(value = "pageNumber",defaultValue = "0",required = false)int pageNumber,
-            @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize,
-            @RequestParam(value = "sortBy",defaultValue = "name",required = false)String sortBy,
-            @RequestParam(value = "sortDir",defaultValue = "asc",required = false)String sortDir
+            @RequestParam(value = "pageNumber",defaultValue = AppConstant.PAGE_NUMBER,required = false)int pageNumber,
+            @RequestParam(value = "pageSize",defaultValue = AppConstant.PAGE_SIZE,required = false)int pageSize,
+            @RequestParam(value = "sortBy",defaultValue = AppConstant.SORT_BY,required = false)String sortBy,
+            @RequestParam(value = "sortDir",defaultValue =AppConstant.SORT_DIR,required = false)String sortDir
     ){
         PageableResponse<UserDto> all = userServiceI.getAllUsers(pageNumber, pageSize,sortBy,sortDir);
         return new ResponseEntity<>( all,HttpStatus.OK);
@@ -149,18 +149,33 @@ public class UserController {
         return new ResponseEntity<>(userDtos,HttpStatus.FOUND);
     }
     //upload user Image
+
+    /**
+     * @author Ashvini sonawane
+     * @apiNote upload user image
+     * @param image
+     * @param userId
+     * @return
+     * @throws IOException
+     */
     @PostMapping("image/{userId}")
-    public ResponseEntity<ImageResponse > uploadUserImage(
-            @RequestParam("userImage")MultipartFile image,
-            @PathVariable String userId
-            ) throws IOException {
+    public ResponseEntity<ImageResponse > uploadUserImage(@RequestParam("userImage")MultipartFile image,
+            @PathVariable String userId) throws IOException {
+        log.info("Initiating request for upload user image:{}",userId);
         String imageName = fileServiceI.uploadFile(image, imageUploadPath);
+
+        //save the image of particular user
+        log.info(" request for getting user :{}",userId);
         UserDto user = userServiceI.getUserById(userId);
         user.setImageName(imageName);
+        log.info("user found:");
         UserDto userDto = userServiceI.updateUser(user, userId);
-        ImageResponse imageResponse=ImageResponse.builder().imageName(imageName)
-                .success(true).status(HttpStatus.CREATED).build();
-        return new ResponseEntity<>(imageResponse,HttpStatus.CREATED);
+
+        ImageResponse response=ImageResponse.builder()
+                .imageName(imageName).message("Image is uploaded successfully").success(true).status(HttpStatus.CREATED).build();
+        log.info("Completed request for uploading image:{}",userId);
+
+        return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
    //Serve user image
     @GetMapping("/image/{userId}")

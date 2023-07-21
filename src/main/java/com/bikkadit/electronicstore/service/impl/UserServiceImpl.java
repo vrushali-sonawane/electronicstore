@@ -2,6 +2,7 @@ package com.bikkadit.electronicstore.service.impl;
 
 import com.bikkadit.electronicstore.dto.UserDto;
 import com.bikkadit.electronicstore.exception.ResourceNotFoundException;
+import com.bikkadit.electronicstore.help.AppConstant;
 import com.bikkadit.electronicstore.help.PageableResponse;
 import com.bikkadit.electronicstore.model.User;
 import com.bikkadit.electronicstore.repository.UserRepository;
@@ -62,7 +63,7 @@ public class UserServiceImpl implements UserServiceI {
     public UserDto updateUser(UserDto userDto, String userId) {
     logger.info("Initiating dao call to update user:"+userId);
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("user not found with userId"));
+                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.USER_NOT_FOUND +userId));
        user.setName(userDto.getName());
        user.setPassword(userDto.getPassword());
        user.setAbout(userDto.getAbout());
@@ -81,7 +82,7 @@ public class UserServiceImpl implements UserServiceI {
     public void deleteUser(String userId) {
         logger.info("Initiating dao call to delete user :"+userId);
         User user1 = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("user not found with userId"));
+                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.USER_NOT_FOUND +userId));
         //delete user profile image
         String fullPath = imagePath+ user1.getImageName();
         try{
@@ -115,7 +116,7 @@ public class UserServiceImpl implements UserServiceI {
     public UserDto getUserById(String userId) {
         logger.info("Initiating Dao call to getting single user:"+userId);
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("user not found with userId"));
+                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.USER_NOT_FOUND +userId));
         UserDto userDto = modelMapper.map(user, UserDto.class);
         logger.info("Completed Dao call to getting single user :"+userId);
         return userDto;
@@ -125,7 +126,7 @@ public class UserServiceImpl implements UserServiceI {
     public UserDto findUserByEmail(String email) {
         logger.info("Initiating dao call to get user by email:"+email);
         User user= userRepository.findUserByEmail(email)
-                .orElseThrow(()-> new ResourceNotFoundException("User not found with email"));
+                .orElseThrow(()-> new ResourceNotFoundException(AppConstant.NOT_FOUND +email));
         UserDto userDto = modelMapper.map(user, UserDto.class);
         logger.info("Completed dao call to get user by email:"+email);
         return userDto;
