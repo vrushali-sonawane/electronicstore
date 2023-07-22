@@ -63,9 +63,9 @@ public class CategoryController {
      */
     @PutMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto, @PathVariable String categoryId){
-      logger.info("Initiating request to update Category:{}"+categoryId);
+      logger.info("Initiating request to update Category:{}",categoryId);
         CategoryDto updatedCategory = categoryServiceI.update(categoryDto, categoryId);
-        logger.info("Completed request to update Category:{}"+categoryId);
+        logger.info("Completed request to update Category:{}",categoryId);
         return new ResponseEntity<>(updatedCategory,HttpStatus.OK);
     }
     //delete
@@ -78,12 +78,11 @@ public class CategoryController {
      */
     @DeleteMapping("/{categoryId}")
     public ResponseEntity<ApiResponseMessage> deleteCategory(@PathVariable String categoryId){
-        logger.info("Initiating request for deleting category:{}"+categoryId);
+        logger.info("Initiating request for deleting category:{}",categoryId);
         categoryServiceI.delete(categoryId);
         ApiResponseMessage responseMessage = ApiResponseMessage.builder().message("category is deleted successfully !!").status(HttpStatus.OK).success(true).build();
-        logger.info("Completing request for deleting category:{}"+categoryId);
+        logger.info("Completing request for deleting category:{}",categoryId);
         return new ResponseEntity<>(responseMessage,HttpStatus.OK);
-
     }
     //getAll categories
 
@@ -97,15 +96,15 @@ public class CategoryController {
      * @return
      */
     @GetMapping("/")
-    public ResponseEntity<PageableResponse> getAll(
+    public ResponseEntity<PageableResponse<CategoryDto>> getAll(
             @RequestParam(value="pageNumber",defaultValue = AppConstant.PAGE_NUMBER,required = false)int pageNumber,
             @RequestParam(value="pageSize",defaultValue =AppConstant.PAGE_SIZE,required = false)int pageSize,
             @RequestParam(value="sortBy",defaultValue = AppConstant.SORT_BY_TITLE,required = false)String sortBy,
             @RequestParam(value="sortDir",defaultValue = AppConstant.SORT_DIR,required = false)String sortDir
     ){
-        logger.info("Initiating request for gettinh all categories:{}");
+        logger.info("Initiating request for getting all categories");
         PageableResponse<CategoryDto> pageableResponse = categoryServiceI.getAll(pageNumber, pageSize, sortBy, sortDir);
-        logger.info("Completed request for gettinh all categories:{}");
+        logger.info("Completed request for getting all categories");
         return new ResponseEntity<>(pageableResponse,HttpStatus.OK);
     }
 
@@ -119,9 +118,9 @@ public class CategoryController {
      */
     @GetMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> getSingle(@PathVariable String categoryId){
-        logger.info("Initiating request to getting single category:{}"+categoryId);
+        logger.info("Initiating request to getting single category:{}",categoryId);
         CategoryDto categoryDto = categoryServiceI.get(categoryId);
-        logger.info("Complete request to getting single category:{}"+categoryId);
+        logger.info("Complete request to getting single category:{}",categoryId);
         return new ResponseEntity<>(categoryDto,HttpStatus.OK);
     }
     //upload image for category
@@ -150,11 +149,22 @@ public class CategoryController {
 
 
     }
+    //serve image
+
+    /**
+     * @author Ashvini sonawane
+     * @apiNote serve image
+     * @param categoryId
+     * @param response
+     * @throws IOException
+     */
     @GetMapping("/image/{categoryId}")
     public void serveImage(@PathVariable String categoryId , HttpServletResponse response) throws IOException {
+        logger.info("Initiating request for serve image:"+categoryId);
         CategoryDto category = categoryServiceI.get(categoryId);
         logger.info("category cover image name: {}",category.getCoverImage());
         InputStream resource = fileServiceI.getResource(imageUploadPath, category.getCoverImage());
         StreamUtils.copy(resource,response.getOutputStream());
+        logger.info("Complete request for serve image:"+categoryId);
     }
 }
