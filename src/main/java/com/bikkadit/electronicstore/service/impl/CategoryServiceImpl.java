@@ -40,7 +40,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
     private Logger logger= LoggerFactory.getLogger(CategoryServiceImpl.class);
     @Override
     public CategoryDto create(CategoryDto categoryDto) {
-        //creating category id randamlly
+        //creating category id randomly
         String categoryId = UUID.randomUUID().toString();
         categoryDto.setCategoryId(categoryId);
         logger.info("Initiating Dao call for create category");
@@ -71,7 +71,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
     @Override
     public void delete(String categoryId) {
-        logger.info("Initiating Dao Call to delete Category:"+categoryId);
+        logger.info("Initiating Dao Call to delete Category:{}",categoryId);
         //get category for given id
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND +categoryId));
@@ -85,10 +85,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
         }catch(IOException ex){
             ex.toString();
         }
-
-
-
-        logger.info("Complete Dao Call to delete Category:"+categoryId);
+        logger.info("Complete Dao Call to delete Category:{}",categoryId);
         categoryRepository.delete(category);
 
     }
@@ -106,9 +103,9 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
     @Override
     public CategoryDto get(String categoryId) {
-        logger.info("Initiating Dao call to get single category:{}"+categoryId);
+        logger.info("Initiating Dao call to get single category:{}",categoryId);
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND +categoryId));
-        logger.info("Completed Dao call to get single category:{}"+categoryId);
+        logger.info("Completed Dao call to get single category:{}",categoryId);
         return modelMapper.map(category,CategoryDto.class);
     }
 }

@@ -6478,3 +6478,6 @@ Caused by: java.io.IOException: Cannot delete C:\Users\KSAV\AppData\Local\Temp\t
 07:22 17:30:52.244 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Initiating Dao call to getting single user:1430b681-b0ec-4fc1-897e-013fedbb8487
 07:22 17:30:52.282 [http-nio-8989-exec-3] [INFO] [c.b.e.service.impl.UserServiceImpl] -Completed Dao call to getting single user :1430b681-b0ec-4fc1-897e-013fedbb8487
 07:22 17:30:52.282 [http-nio-8989-exec-3] [INFO] [c.b.e.controller.UserController] -User Image name : e0a6c9f8-77aa-404e-80ad-01056684ae39.jpeg
+07:22 18:10:23.498 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:22 18:10:24.766 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:22 18:10:25.150 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
