@@ -58,7 +58,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
         //get category of given id
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND +categoryId));
+                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND));
 
         //update category details
         category.setTitle(categoryDto.getTitle());
@@ -74,16 +74,16 @@ public class CategoryServiceImpl implements CategoryServiceI {
         logger.info("Initiating Dao Call to delete Category:{}",categoryId);
         //get category for given id
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND +categoryId));
+                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND));
         String fullPath = imageUploadPath+ category.getCoverImage();
         try{
             Path path = Paths.get(fullPath);
             Files.delete(path);
         }catch(NoSuchFileException ex){
             logger.info("category image not found in folder");
-            ex.toString();
+            ex.printStackTrace();
         }catch(IOException ex){
-            ex.toString();
+            ex.printStackTrace();
         }
         logger.info("Complete Dao Call to delete Category:{}",categoryId);
         categoryRepository.delete(category);
@@ -104,7 +104,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
     @Override
     public CategoryDto get(String categoryId) {
         logger.info("Initiating Dao call to get single category:{}",categoryId);
-        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND +categoryId));
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND ));
         logger.info("Completed Dao call to get single category:{}",categoryId);
         return modelMapper.map(category,CategoryDto.class);
     }
