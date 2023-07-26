@@ -3,6 +3,8 @@ package com.bikkadit.electronicstore.dto;
 import lombok.*;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Getter
@@ -12,7 +14,9 @@ import java.util.Date;
 @ToString
 public class ProductDto {
     private String productId;
+    @Size(min=4,message = "title have minimum 4 character !!")
     private String title;
+    @NotBlank(message = "Description Required")
     private String description;
     private Double price;
     private Double discountedPrice;
@@ -20,4 +24,5 @@ public class ProductDto {
     private Date addedDate;
     private boolean live;
     private boolean stock;
+    private String productImage;
 }
