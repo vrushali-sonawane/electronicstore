@@ -77,12 +77,12 @@ public class CategoryController {
      * @return
      */
     @DeleteMapping("/{categoryId}")
-    public ResponseEntity<ApiResponseMessage> deleteCategory(@PathVariable String categoryId){
+    public ResponseEntity<?> deleteCategory(@PathVariable String categoryId){
         logger.info("Initiating request for deleting category:{}",categoryId);
         categoryServiceI.delete(categoryId);
-        ApiResponseMessage responseMessage = ApiResponseMessage.builder().message("category is deleted successfully !!").status(HttpStatus.OK).success(true).build();
+
         logger.info("Completing request for deleting category:{}",categoryId);
-        return new ResponseEntity<>(responseMessage,HttpStatus.OK);
+        return new ResponseEntity<>(AppConstant.DELETE_CATEGORY,HttpStatus.OK);
     }
     //getAll categories
 
