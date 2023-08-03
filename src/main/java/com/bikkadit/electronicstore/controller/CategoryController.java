@@ -52,7 +52,7 @@ public class CategoryController {
     public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
         logger.info("Initiating request for create category");
       //call service to save object
-        CategoryDto categoryDto1 = categoryServiceI.create(categoryDto);
+        CategoryDto categoryDto1 = categoryServiceI.createCategory(categoryDto);
         logger.info("Completed request for create category");
         return new ResponseEntity<>(categoryDto1, HttpStatus.CREATED);
     }
@@ -68,7 +68,7 @@ public class CategoryController {
     @PutMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto, @PathVariable String categoryId){
       logger.info("Initiating request to update Category:{}",categoryId);
-        CategoryDto updatedCategory = categoryServiceI.update(categoryDto, categoryId);
+        CategoryDto updatedCategory = categoryServiceI.updateCategory(categoryDto, categoryId);
         logger.info("Completed request to update Category:{}",categoryId);
         return new ResponseEntity<>(updatedCategory,HttpStatus.OK);
     }
@@ -83,7 +83,7 @@ public class CategoryController {
     @DeleteMapping("/{categoryId}")
     public ResponseEntity<?> deleteCategory(@PathVariable String categoryId){
         logger.info("Initiating request for deleting category:{}",categoryId);
-        categoryServiceI.delete(categoryId);
+        categoryServiceI.deleteCategory(categoryId);
 
         logger.info("Completing request for deleting category:{}",categoryId);
         return new ResponseEntity<>(AppConstant.DELETE_CATEGORY,HttpStatus.OK);
@@ -107,7 +107,7 @@ public class CategoryController {
             @RequestParam(value="sortDir",defaultValue = AppConstant.SORT_DIR,required = false)String sortDir
     ){
         logger.info("Initiating request for getting all categories");
-        PageableResponse<CategoryDto> pageableResponse = categoryServiceI.getAll(pageNumber, pageSize, sortBy, sortDir);
+        PageableResponse<CategoryDto> pageableResponse = categoryServiceI.getAllCategories(pageNumber, pageSize, sortBy, sortDir);
         logger.info("Completed request for getting all categories");
         return new ResponseEntity<>(pageableResponse,HttpStatus.OK);
     }
@@ -123,7 +123,7 @@ public class CategoryController {
     @GetMapping("/{categoryId}")
     public ResponseEntity<CategoryDto> getSingle(@PathVariable String categoryId){
         logger.info("Initiating request to getting single category:{}",categoryId);
-        CategoryDto categoryDto = categoryServiceI.get(categoryId);
+        CategoryDto categoryDto = categoryServiceI.getCategory(categoryId);
         logger.info("Complete request to getting single category:{}",categoryId);
         return new ResponseEntity<>(categoryDto,HttpStatus.OK);
     }
@@ -141,9 +141,9 @@ public class CategoryController {
     public ResponseEntity<ImageResponse> uploadCategoryImage(@RequestParam("categoryImage") MultipartFile image,@PathVariable String categoryId) throws IOException {
        logger.info("Initiating request for upload category image:{}",categoryId);
         String imageName = fileServiceI.uploadFile(image, imageUploadPath);
-        CategoryDto category = categoryServiceI.get(categoryId);
+        CategoryDto category = categoryServiceI.getCategory(categoryId);
         category.setCoverImage(imageName);
-        CategoryDto update = categoryServiceI.update(category, categoryId);
+        CategoryDto update = categoryServiceI.updateCategory(category, categoryId);
 
         ImageResponse response=ImageResponse.builder()
                 .imageName(imageName).message("Image is uploaded successfully").success(true).status(HttpStatus.CREATED).build();

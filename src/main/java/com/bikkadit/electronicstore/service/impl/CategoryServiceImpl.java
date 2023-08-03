@@ -39,7 +39,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
     private Logger logger= LoggerFactory.getLogger(CategoryServiceImpl.class);
     @Override
-    public CategoryDto create(CategoryDto categoryDto) {
+    public CategoryDto createCategory(CategoryDto categoryDto) {
         //creating category id randomly
         String categoryId = UUID.randomUUID().toString();
         categoryDto.setCategoryId(categoryId);
@@ -53,7 +53,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
     }
 
     @Override
-    public CategoryDto update(CategoryDto categoryDto, String categoryId) {
+    public CategoryDto updateCategory(CategoryDto categoryDto, String categoryId) {
         logger.info("Initiating Dao call to Update Category:"+categoryId);
 
         //get category of given id
@@ -70,7 +70,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
     }
 
     @Override
-    public void delete(String categoryId) {
+    public void deleteCategory(String categoryId) {
         logger.info("Initiating Dao Call to delete Category:{}",categoryId);
         //get category for given id
         Category category = categoryRepository.findById(categoryId)
@@ -91,7 +91,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
     }
 
     @Override
-    public PageableResponse<CategoryDto> getAll(int pageNUmber,int pageSize,String sortBy,String sortDir) {
+    public PageableResponse<CategoryDto> getAllCategories(int pageNUmber,int pageSize,String sortBy,String sortDir) {
         Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
         Pageable pageable = PageRequest.of(pageNUmber,pageSize,sort);
         logger.info("Initiating Dao call to get All categories:");
@@ -102,7 +102,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
     }
 
     @Override
-    public CategoryDto get(String categoryId) {
+    public CategoryDto getCategory(String categoryId) {
         logger.info("Initiating Dao call to get single category:{}",categoryId);
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND ));
         logger.info("Completed Dao call to get single category:{}",categoryId);
