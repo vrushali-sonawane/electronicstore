@@ -54,7 +54,7 @@ class UserServiceImplTest {
         user1 = User.builder()
                 .userId(id2)
                 .name("vrushali sonawane")
-                .email("vrushu@gmail.com")
+                .email("vrushali123@gmail.com")
                 .password("7Vrushalis")
                 .about("java developer")
                 .gender("female")
@@ -134,9 +134,18 @@ class UserServiceImplTest {
 
     @Test
     void findUserByEmail() {
+        String email="vrushali123@gmail.com";
+        Mockito.when(userRepository.findUserByEmail(email)).thenReturn(Optional.of(user1));
+        UserDto userDto2 = userServiceImpl.findUserByEmail(email);
+        Assertions.assertEquals("vrushali sonawane",userDto2.getName());
+
     }
 
     @Test
     void searchUser() {
+        String keyword="sonawane";
+        Mockito.when(userRepository.findUserByNameContaining(keyword)).thenReturn(users);
+        List<UserDto> userDtos = userServiceImpl.searchUser(keyword);
+        Assertions.assertEquals(2,userDtos.size());
     }
 }
