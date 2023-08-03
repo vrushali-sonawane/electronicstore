@@ -1,6 +1,7 @@
 package com.bikkadit.electronicstore.service.impl;
 
 import com.bikkadit.electronicstore.dto.UserDto;
+import com.bikkadit.electronicstore.help.PageableResponse;
 import com.bikkadit.electronicstore.model.User;
 import com.bikkadit.electronicstore.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
@@ -11,6 +12,7 @@ import org.mockito.stubbing.OngoingStubbing;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.*;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -105,11 +107,29 @@ class UserServiceImplTest {
 
     @Test
     void getAllUsers() {
+        int pageNumber=0;
+        int pageSize=2;
+        String sortBy="name";
+        String sortDir="asc";
+
+        Sort sort=Sort.by("name").ascending();
+        Page<User> page=new PageImpl<>(users);
+        Pageable pageable=PageRequest.of(pageNumber,pageSize,sort);
+
+        Mockito.when(userRepository.findAll(pageable)).thenReturn(page);
+
+        PageableResponse<UserDto> allUsers = userServiceImpl.getAllUsers(pageNumber, pageSize, sortBy, sortDir);
+        Assertions.assertEquals(2,allUsers.getContent().size());
 
     }
 
     @Test
     void getUserById() {
+        String stringId = UUID.randomUUID().toString();
+        Mockito.when(userRepository.findById(stringId)).thenReturn(Optional.of(user));
+        UserDto userDto1 = userServiceImpl.getUserById(stringId);
+        Assertions.assertEquals("ashvini sonawane",userDto1.getName());
+
     }
 
     @Test
