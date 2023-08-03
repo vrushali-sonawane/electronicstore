@@ -2,6 +2,7 @@ package com.bikkadit.electronicstore.service;
 
 import com.bikkadit.electronicstore.dto.ProductDto;
 import com.bikkadit.electronicstore.help.PageableResponse;
+import com.bikkadit.electronicstore.model.Product;
 
 import java.util.List;
 
@@ -26,5 +27,19 @@ public interface ProductServiceI {
 
     //search product
     PageableResponse<ProductDto> searchByTitle(String subTitle,int pageNumber,int pageSize,String sortBy,String sortDir);
+
+
+    //create product with category
+   ProductDto createWithCategory(ProductDto productDto,String categoryId);
+    //update category of product
+    ProductDto updateCategory(String productId,String categoryId);
+
+    //
+    PageableResponse<ProductDto>getAllOfCategory(String categoryId,int pageNumber,int pageSize,String sortBy,String sortDir);
+
+
+
+
+
 
 }

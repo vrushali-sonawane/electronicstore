@@ -2,10 +2,9 @@ package com.bikkadit.electronicstore.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,4 +25,8 @@ public class Category {
     private String description;
 
     private String coverImage;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch =FetchType.LAZY,mappedBy = "category")
+
+    private List<Product> products=new ArrayList<>();
 }

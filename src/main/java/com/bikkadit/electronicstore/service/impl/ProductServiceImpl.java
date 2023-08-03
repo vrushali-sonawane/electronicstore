@@ -4,7 +4,9 @@ import com.bikkadit.electronicstore.dto.ProductDto;
 import com.bikkadit.electronicstore.exception.ResourceNotFoundException;
 import com.bikkadit.electronicstore.help.AppConstant;
 import com.bikkadit.electronicstore.help.PageableResponse;
+import com.bikkadit.electronicstore.model.Category;
 import com.bikkadit.electronicstore.model.Product;
+import com.bikkadit.electronicstore.repository.CategoryRepository;
 import com.bikkadit.electronicstore.repository.ProductRepository;
 import com.bikkadit.electronicstore.service.ProductServiceI;
 import com.bikkadit.electronicstore.utility.Helper;
@@ -18,6 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -28,12 +31,15 @@ public class ProductServiceImpl implements ProductServiceI {
     private ModelMapper modelMapper;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     private Logger logger= LoggerFactory.getLogger(ProductServiceImpl.class);
     @Override
     public ProductDto createProduct(ProductDto productDto) {
         String productId = UUID.randomUUID().toString();
         productDto.setProductId(productId);
+        productDto.setAddedDate(new Date());
         logger.info("Initiating dao call to create product");
         Product product = modelMapper.map(productDto, Product.class);
         Product savedProduct = productRepository.save(product);
@@ -110,4 +116,44 @@ public class ProductServiceImpl implements ProductServiceI {
         logger.info("Completed dao call to search product by title");
         return Helper.getPageableResponse(page, ProductDto.class);
     }
+
+   @Override
+    public ProductDto createWithCategory(ProductDto productDto, String categoryId) {
+       logger.info("Initiating dao call to create product with category:{}",categoryId);
+        //fetch the category with categoryId
+       Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND));
+       String productId = UUID.randomUUID().toString();
+       productDto.setProductId(productId);
+       productDto.setAddedDate(new Date());
+
+       Product product = modelMapper.map(productDto, Product.class);
+       product.setCategory(category);
+       Product savedProduct = productRepository.save(product);
+       ProductDto productDto1 = modelMapper.map(savedProduct, ProductDto.class);
+       logger.info("Completing dao call to create product with category:{}",categoryId);
+       return productDto1;
+
+    }
+
+    @Override
+    public ProductDto updateCategory(String productId, String categoryId) {
+
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.PRODUCT_NOT_FOUND));
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND));
+       product.setCategory(category);
+        Product savedProduct = productRepository.save(product);
+        return modelMapper.map(savedProduct,ProductDto.class);
+    }
+
+    @Override
+    public PageableResponse<ProductDto> getAllOfCategory(String categoryId,int pageNumber,int pageSize,String sortBy,String sortDir) {
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND));
+        Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
+       Pageable pageable=PageRequest.of(pageNumber,pageSize,sort);
+        Page<Product> page = productRepository.findByCategory(category,pageable);
+        return Helper.getPageableResponse(page,ProductDto.class);
+    }
+
+
 }

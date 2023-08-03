@@ -1,5 +1,6 @@
 package com.bikkadit.electronicstore.dto;
 
+import com.bikkadit.electronicstore.model.Category;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -25,4 +26,5 @@ public class ProductDto {
     private boolean live;
     private boolean stock;
     private String productImage;
+    private CategoryDto category;
 }
