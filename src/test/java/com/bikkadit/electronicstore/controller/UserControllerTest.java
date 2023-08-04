@@ -1,6 +1,7 @@
 package com.bikkadit.electronicstore.controller;
 
 import com.bikkadit.electronicstore.dto.UserDto;
+import com.bikkadit.electronicstore.help.PageableResponse;
 import com.bikkadit.electronicstore.model.User;
 import com.bikkadit.electronicstore.service.FileServiceI;
 import com.bikkadit.electronicstore.service.UserServiceI;
@@ -24,6 +25,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.Arrays;
 import java.util.UUID;
 
 @SpringBootTest
@@ -109,7 +111,30 @@ void init(){
     }
 
     @Test
-    void getAllUsersTest() {
+    void getAllUsersTest() throws Exception {
+    UserDto userDto=UserDto.builder().name("vrushali").email("vrushali@gmail.com").password("45@Vrushali").about("java developer").gender("female").imageName("abc.png").build();
+
+    UserDto userDto1=UserDto.builder().name("samir").email("samir23@gmail.com").password("34Samirxyz").about("tester").gender("male").imageName("xyz.png").build();
+
+    UserDto userDto2=UserDto.builder().name("sagar").email("sager68@gmail.com").password("10Sagarrs").about("java developer").imageName("abc.png").gender("male").build();
+
+        PageableResponse pageableResponse = new PageableResponse<>();
+
+        pageableResponse.setContent(Arrays.asList(userDto,userDto1,userDto2));
+        pageableResponse.setPageNumber(10);
+        pageableResponse.setPageSize(10);
+        pageableResponse.setTotalElements(100);
+        pageableResponse.setTotalElements(1000);
+        pageableResponse.setLastPage(false);
+
+        Mockito.when(userServiceI.getAllUsers(Mockito.anyInt(),Mockito.anyInt(),Mockito.anyString(),Mockito.anyString())).thenReturn(pageableResponse);
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+
     }
 
     @Test
