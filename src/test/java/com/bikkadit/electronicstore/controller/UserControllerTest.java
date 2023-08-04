@@ -86,19 +86,26 @@ void init(){
     void updateUserTest() throws Exception {
         String userId = UUID.randomUUID().toString();
         UserDto userDto = modelMapper.map(user, UserDto.class);
-        Mockito.when(userServiceI.getUserById(Mockito.any())).thenReturn(userDto);
-        mockMvc.perform(MockMvcRequestBuilders.put("/{userId}")
+        Mockito.when(userServiceI.updateUser(Mockito.any(),Mockito.anyString())).thenReturn(userDto);
+        mockMvc.perform(MockMvcRequestBuilders.put("/users/"+ userId)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(convertObjectToJsonString(user))
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isCreated())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").exists());
 
     }
 
     @Test
-    void deleteUserTest() {
+    void deleteUserTest() throws Exception {
+        String userId = UUID.randomUUID().toString();
+       mockMvc.perform(MockMvcRequestBuilders.delete("/users/"+userId)
+               .contentType(MediaType.APPLICATION_JSON))
+               .andExpect(status().isOk());
+
+
+
     }
 
     @Test
