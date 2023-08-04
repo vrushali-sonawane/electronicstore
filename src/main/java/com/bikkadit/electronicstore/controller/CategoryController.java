@@ -165,7 +165,7 @@ public class CategoryController {
     @GetMapping("/image/{categoryId}")
     public void serveImage(@PathVariable String categoryId , HttpServletResponse response) throws IOException {
         logger.info("Initiating request for serve image:"+categoryId);
-        CategoryDto category = categoryServiceI.get(categoryId);
+        CategoryDto category = categoryServiceI.getCategory(categoryId);
         logger.info("category cover image name: {}",category.getCoverImage());
         InputStream resource = fileServiceI.getResource(imageUploadPath, category.getCoverImage());
         StreamUtils.copy(resource,response.getOutputStream());
