@@ -187,7 +187,33 @@ void init(){
 }
 
     @Test
-    void updateCategoryOfProductTest() {
+    void updateCategoryOfProductTest() throws Exception {
+        String categoryId=UUID.randomUUID().toString();
+
+        String productId= UUID.randomUUID().toString();
+        Product   product1 = Product.builder()
+                .productId(productId)
+                .title("Samsung A34")
+                .discountedPrice(2000.00)
+                .price(20000.00)
+                .quantity(100)
+                .live(true)
+                .addedDate(new Date())
+                .stock(true)
+                .description("This mobile  has many features")
+                .productImage("abc.png")
+                .category(category)
+                .build();
+        ProductDto productDto = mapper.map(product1, ProductDto.class);
+
+        Mockito.when(productServiceI.updateCategory(Mockito.anyString(),Mockito.anyString())).thenReturn(productDto);
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/categories/"+categoryId+ "/products/"+productId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title").exists());
     }
 
     @Test
