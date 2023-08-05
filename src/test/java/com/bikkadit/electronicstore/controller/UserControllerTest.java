@@ -26,6 +26,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
@@ -45,6 +46,8 @@ class UserControllerTest {
     private MockMvc mockMvc;
 
     User user;
+
+    List<UserDto> userDtos;
 @BeforeEach
 void init(){
     String userId = UUID.randomUUID().toString();
@@ -57,6 +60,7 @@ void init(){
             .gender("female")
             .imageName("abc.png")
             .build();
+
 
 }
 
@@ -168,7 +172,20 @@ void init(){
     }
 
     @Test
-    void searchUserTest() {
+    void searchUserTest() throws Exception {
+        String userId = UUID.randomUUID().toString();
+        UserDto userDto=UserDto.builder().name("sanket").email("sanket23@gmail.com").password("45Sanketss").gender("male").about("java developer").imageName("abc.png").build();
+        UserDto userDto1=UserDto.builder().name("shekhar").password("11Sheksarss").email("shekhar122@gmail.com").gender("male").about("tester").imageName("xyz.png").build();
+        UserDto userDto2=UserDto.builder().name("sarite").password("44Sarita").email("sarita11@gmail.com").gender("female").about("tester").imageName("xyz.png").build();
+        List<UserDto> list = Arrays.asList(userDto, userDto1, userDto2);
+
+
+        Mockito.when(userServiceI.searchUser(Mockito.anyString())).thenReturn(list);
+       mockMvc.perform(MockMvcRequestBuilders.get("/users/search/")
+               .contentType(MediaType.APPLICATION_JSON)
+               .accept(MediaType.APPLICATION_JSON))
+               .andDo(print())
+               .andExpect(status().isOk());
     }
 
     @Test
