@@ -1,6 +1,7 @@
 package com.bikkadit.electronicstore.controller;
 
 import com.bikkadit.electronicstore.dto.CategoryDto;
+import com.bikkadit.electronicstore.help.PageableResponse;
 import com.bikkadit.electronicstore.model.Category;
 import com.bikkadit.electronicstore.service.CategoryServiceI;
 import com.bikkadit.electronicstore.service.ProductServiceI;
@@ -24,6 +25,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.Arrays;
 import java.util.UUID;
 
 @SpringBootTest
@@ -104,7 +106,28 @@ void init(){
 }
 
     @Test
-    void getAllCategoriesTest() {
+    void getAllCategoriesTest() throws Exception {
+    CategoryDto categoryDto=CategoryDto.builder().title("mobiles").description("different types of mobile").coverImage("abc.png").build();
+    CategoryDto categoryDto1=CategoryDto.builder().title("laptops").description("each variety of laptops have 10% off").coverImage("xyz.png").build();
+    CategoryDto categoryDto2=CategoryDto.builder().title("chargers").description("as per customer requirement ").coverImage("abc.png").build();
+
+        PageableResponse pageableResponse = new PageableResponse<>();
+
+        pageableResponse.setContent(Arrays.asList(categoryDto2,categoryDto1,categoryDto));
+        pageableResponse.setPageNumber(10);
+        pageableResponse.setPageSize(10);
+        pageableResponse.setTotalElements(100);
+        pageableResponse.setTotalElements(1000);
+        pageableResponse.setLastPage(false);
+
+        Mockito.when(categoryServiceI.getAllCategories(Mockito.anyInt(),Mockito.anyInt(),Mockito.anyString(),Mockito.anyString())).thenReturn(pageableResponse);
+        mockMvc.perform(MockMvcRequestBuilders.get("/categories/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+
     }
 
     @Test
