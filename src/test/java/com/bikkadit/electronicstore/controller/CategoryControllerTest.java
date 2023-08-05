@@ -1,8 +1,10 @@
 package com.bikkadit.electronicstore.controller;
 
 import com.bikkadit.electronicstore.dto.CategoryDto;
+import com.bikkadit.electronicstore.dto.ProductDto;
 import com.bikkadit.electronicstore.help.PageableResponse;
 import com.bikkadit.electronicstore.model.Category;
+import com.bikkadit.electronicstore.model.Product;
 import com.bikkadit.electronicstore.service.CategoryServiceI;
 import com.bikkadit.electronicstore.service.ProductServiceI;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,6 +28,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.UUID;
 
 @SpringBootTest
@@ -151,8 +154,37 @@ void init(){
     }
 
     @Test
-    void createProductWithCategoryTest() {
-    }
+    void createProductWithCategoryTest() throws Exception {
+        String categoryId=UUID.randomUUID().toString();
+
+        String productId= UUID.randomUUID().toString();
+        Product   product1 = Product.builder()
+                .productId(productId)
+                .title("Samsung A34")
+                .discountedPrice(3000.00)
+                .price(20000.00)
+                .quantity(100)
+                .live(true)
+                .addedDate(new Date())
+                .stock(true)
+                .description("This mobile  has many fetures")
+                .productImage("abc.png")
+                .category(category)
+                .build();
+
+        ProductDto productDto = mapper.map(product1, ProductDto.class);
+
+        Mockito.when(productServiceI.createWithCategory(Mockito.any(),Mockito.anyString())).thenReturn(productDto);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/categories/"+categoryId+"/products")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(convertObjectToJsonString(product1))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.title").exists());
+
+}
 
     @Test
     void updateCategoryOfProductTest() {
