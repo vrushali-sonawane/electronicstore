@@ -82,7 +82,7 @@ void init(){
         String id = UUID.randomUUID().toString();
         CategoryDto categoryDto = mapper.map(category, CategoryDto.class);
         Mockito.when(categoryServiceI.getCategory(id)).thenReturn(categoryDto);
-        Mockito.when(categoryServiceI.updateCategory(categoryDto,id)).thenReturn(categoryDto);
+        Mockito.when(categoryServiceI.updateCategory(Mockito.any(),Mockito.anyString())).thenReturn(categoryDto);
         mockMvc.perform(MockMvcRequestBuilders.put("/categories/"+id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
