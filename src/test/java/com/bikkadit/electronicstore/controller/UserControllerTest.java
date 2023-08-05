@@ -138,11 +138,33 @@ void init(){
     }
 
     @Test
-    void getSingleUserTest() {
+    void getSingleUserTest() throws Exception {
+        String userId=UUID.randomUUID().toString();
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        Mockito.when(userServiceI.getUserById(userId)).thenReturn(userDto);
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/"+userId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+
     }
 
     @Test
-    void getSingleUserByEmailTest() {
+    void getSingleUserByEmailTest() throws Exception {
+        String string = UUID.randomUUID().toString();
+        user =User.builder().email("vrushali123@gmail.com").build();
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        Mockito.when(userServiceI.findUserByEmail(userDto.getEmail())).thenReturn(userDto);
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/email/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+
+
     }
 
     @Test
