@@ -1,6 +1,7 @@
 package com.bikkadit.electronicstore.controller;
 
 import com.bikkadit.electronicstore.dto.UserDto;
+import com.bikkadit.electronicstore.help.ImageResponse;
 import com.bikkadit.electronicstore.help.PageableResponse;
 import com.bikkadit.electronicstore.model.User;
 import com.bikkadit.electronicstore.service.FileServiceI;
@@ -16,15 +17,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.mockito.Mockito;
+import org.mockito.stubbing.OngoingStubbing;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -44,6 +53,8 @@ class UserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+     MultipartFile file;
 
     User user;
 
@@ -189,10 +200,39 @@ void init(){
     }
 
     @Test
-    void uploadUserImageTest() {
+    void uploadUserImageTest() throws Exception {
+    String fileName="abc.png";
+    String filePath="image/users/";
+       
+    String userId=UUID.randomUUID().toString();
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        Mockito.when(userServiceI.getUserById(userId)).thenReturn(userDto);
+       Mockito.when(fileServiceI.uploadFile(file, filePath)).thenReturn(fileName);
+        userDto.setImageName(fileName);
+        Mockito.when(userServiceI.updateUser(userDto,userId)).thenReturn(userDto);
+
+         mockMvc.perform(MockMvcRequestBuilders.post("/users/image/")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
     }
 
     @Test
-    void serveImageTest() {
+    void serveImageTest() throws Exception {
+    String userId=UUID.randomUUID().toString();
+        String fileName="abc.png";
+        String filePath="image/users/";
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        InputStream file =new FileInputStream(userDto.getImageName());
+        Mockito.when(userServiceI.getUserById(userId)).thenReturn(userDto);
+        Mockito.when(fileServiceI.getResource(filePath,user.getImageName())).thenReturn(file);
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/image/"+userId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print());
+
+
     }
 }
