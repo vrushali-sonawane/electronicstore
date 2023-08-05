@@ -217,6 +217,49 @@ void init(){
     }
 
     @Test
-    void getProductOfCategoryTest() {
+    void getProductOfCategoryTest() throws Exception {
+        CategoryDto categoryDto = mapper.map(category, CategoryDto.class);
+
+        ProductDto productDto1=ProductDto.builder().productId(UUID.randomUUID().toString())
+                .title("Redmi headphones")
+                .description("Redmi headphones available ith less price")
+                .productImage("abc.png")
+                .quantity(100)
+                .price(3000.00)
+                .discountedPrice(300.00)
+                .live(true)
+                .stock(true)
+                .category(categoryDto)
+                .build();
+
+        ProductDto productDto2=ProductDto.builder().productId(UUID.randomUUID().toString())
+                .title("Boat headphones")
+                .description("Boat headphones available ith less price")
+                .productImage("dss.png")
+                .quantity(100)
+                .price(3000.00)
+                .discountedPrice(300.00)
+                .live(true)
+                .stock(true)
+                .category(categoryDto)
+                .build();
+
+        PageableResponse<ProductDto> pageableResponse=new PageableResponse<>();
+        pageableResponse.setContent(Arrays.asList(productDto1,productDto2));
+        pageableResponse.setPageNumber(0);
+        pageableResponse.setPageSize(10);
+        pageableResponse.setTotalPages(100);
+        pageableResponse.setTotalElements(1000);
+        pageableResponse.setLastPage(false);
+
+
+
+        Mockito.when(productServiceI.getAllOfCategory(Mockito.anyString(),Mockito.anyInt(), Mockito.anyInt(),Mockito.anyString(),Mockito.anyString())).thenReturn(pageableResponse);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/categories/"+categoryDto.getCategoryId()+"/products")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 }

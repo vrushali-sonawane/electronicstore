@@ -13,6 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class ProductDto {
     private String productId;
     @Size(min=4,message = "title have minimum 4 character !!")
