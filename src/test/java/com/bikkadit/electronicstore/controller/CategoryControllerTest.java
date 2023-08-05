@@ -94,8 +94,14 @@ void init(){
     }
 
     @Test
-    void deleteCategoryTestTest() {
-    }
+    void deleteCategoryTestTest() throws Exception {
+        String string = UUID.randomUUID().toString();
+
+       mockMvc.perform(MockMvcRequestBuilders.delete("/categories/"+string)
+               .contentType(MediaType.APPLICATION_JSON))
+               .andExpect(status().isOk());
+
+}
 
     @Test
     void getAllCategoriesTest() {
